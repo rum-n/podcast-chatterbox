@@ -1,0 +1,60 @@
+.accent-red {
+    color: #EE6C4D;
+} 
+
+.main-blue {
+    color: #3d5a80;
+} 
+
+.light-blue {
+    color: #98c1d9;
+}
+
+.lightest-blue {
+    color: #E0FBFC;
+}
+
+.dark-blue {
+    color: #293241;
+} 
+
+.title {
+    font-size: 3.2rem;
+    font-weight: 600;
+    line-height: 3.2rem;
+    margin-bottom: 0;
+}
+
+.intro {
+    margin-left: 7rem;
+    margin-top: 8rem;
+    margin-bottom: 12rem; 
+    width: 60%;
+}
+
+.intro h2 {
+    font-weight: 400;
+}
+
+.intro button {    
+    border-radius: 6px;
+    width: auto;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    padding: 1.1rem 2.8rem;
+    color: #E0FBFC;
+    background: #3d5a80;
+    border: none;
+    margin-top: 2rem;
+}
+
+.intro button:hover {
+    background: #293241;
+}
+
+.main {
+    width: 50rem;
+    margin: auto;
+}
+

@@ -1,0 +1,14 @@
+.square {
+    /* border: 15px solid #EE6C4D; */
+    width: 35rem;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    top: 0;
+    margin-top: 10rem;
+    margin-right: 3rem;
+}
+
+.square img {
+    height: 25rem;
+}
