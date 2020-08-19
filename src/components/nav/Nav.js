@@ -17,6 +17,7 @@ const Nav = () => {
                     <li><NavLink className='main-blue' to='/hosts'>For Hosts</NavLink></li>
                     <li><NavLink className='main-blue' to='/guests'>For Guests</NavLink></li>
                     <li><NavLink className='main-blue' to='/login'>Login</NavLink></li>
+                    <li><NavLink className='main-blue' to='/signup'>Signup</NavLink></li>
                 </ul>
             </nav>         
         </header>
