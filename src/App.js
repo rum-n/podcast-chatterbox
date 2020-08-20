@@ -7,7 +7,6 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Main from './pages/Main';
 import Nav from './components/nav/Nav';
-import Footer from './components/footer/Footer';
 import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute';
 
@@ -26,7 +25,6 @@ function App() {
             <Route path='/signup' exact component={Signup} />
           </Switch>
         </Router>
-        <Footer/>
       </div>
     </AuthProvider>
   );

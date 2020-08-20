@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "./../base";
+import { NavLink } from 'react-router-dom';
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
@@ -17,18 +18,19 @@ const SignUp = ({ history }) => {
   }, [history]);
 
   return (
-    <div>
-      <h1>Sign up</h1>
-      <form onSubmit={handleSignUp}>
+    <div className='login'>
+      <h1 className='main-blue'>Signup</h1>
+      <form className='login-form' onSubmit={handleSignUp}>
         <label>
           Email
-          <input name="email" type="email" placeholder="Email" />
         </label>
+          <input name="email" type="email" placeholder="Email" />
         <label>
           Password
-          <input name="password" type="password" placeholder="Password" />
         </label>
-        <button type="submit">Sign Up</button>
+          <input name="password" type="password" placeholder="Password" />
+        <button type="submit">Signup</button>
+        <p>Already have an account? <NavLink className='main-blue' to='/login'>Login</NavLink></p>
       </form>
     </div>
   );

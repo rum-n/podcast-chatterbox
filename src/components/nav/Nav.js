@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import './styles.css';
 import logo from './../../assets/logo.png';
+import { AuthContext } from './../../Auth';
+import app from './../../base';
 
 const Nav = () => {
-
+    const { currentUser } = useContext(AuthContext);
     return (
         <header>
             <Link to='/'>
@@ -14,10 +16,11 @@ const Nav = () => {
             </Link>
             <nav>
                 <ul className='menu'>
-                    <li><NavLink className='main-blue' to='/hosts'>For Hosts</NavLink></li>
-                    <li><NavLink className='main-blue' to='/guests'>For Guests</NavLink></li>
-                    <li><NavLink className='main-blue' to='/login'>Login</NavLink></li>
-                    <li><NavLink className='main-blue' to='/signup'>Signup</NavLink></li>
+                    {!currentUser && <li><NavLink className='main-blue' to='/hosts'>For Hosts</NavLink></li>}
+                    {!currentUser && <li><NavLink className='main-blue' to='/guests'>For Guests</NavLink></li>}
+                    {!currentUser && <li><NavLink className='main-blue' to='/login'>Login</NavLink></li>}
+                    {!currentUser && <li><NavLink className='main-blue' to='/signup'>Join Now</NavLink></li>}
+                    {currentUser && <li><button className='logout-btn main-blue' onClick={()=>app.auth().signOut()}>Logout</button></li>}
                 </ul>
             </nav>         
         </header>

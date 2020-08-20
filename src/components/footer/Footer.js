@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
 import logo from './../../assets/logo.png';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -11,8 +12,8 @@ const Footer = () => {
             </div>
             <div>
                 <h4>Features</h4>
-                <p>For Hosts</p>
-                <p>For Guests</p>
+                <p><NavLink className='main-blue' to='/hosts'>For Hosts</NavLink></p>
+                <p><NavLink className='main-blue' to='/guests'>For Guests</NavLink></p>
             </div>
             <div>
                 <h4>Contact</h4>

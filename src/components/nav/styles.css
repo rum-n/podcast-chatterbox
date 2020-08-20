@@ -51,3 +51,20 @@ nav {
 .logo img{
     width: 12rem;
 }
+
+.logout-btn {
+    border-radius: 6px;
+    width: auto;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    padding: 0.7rem 1.5rem;
+    color: #3d5a80;
+    border: 1px solid #3d5a80;
+    margin-top: 2rem;
+}
+
+.logout-btn:hover {
+    color: #E0FBFC;
+    background: #3d5a80;
+}

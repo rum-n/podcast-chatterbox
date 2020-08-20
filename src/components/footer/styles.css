@@ -28,6 +28,12 @@ footer a:hover {
     color: #98c1d9;
 }
 
+hr {
+    width: 80%;
+    border: 0.5px solid #3d5a8046;
+    margin-bottom: -5rem;
+}
+
 @media screen and (max-width: 765px) {
     footer {
         display: inline-block;

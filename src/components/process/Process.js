@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import { NavLink } from 'react-router-dom';
 import mic from './../../assets/mic.png';
 
 const Process = () => {
@@ -32,7 +33,7 @@ const Process = () => {
                     </ul>
                 </div>
             </div>
-            <button>Join Now</button>
+            <NavLink className='main-blue' to='/signup'><button>Join Now</button></NavLink>
         </div>
     )
 }
