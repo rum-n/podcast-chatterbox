@@ -1,0 +1,66 @@
+.pricing-wrapper {
+    width: 80%;
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pricing-wrapper h2 {
+    font-size: 2.5rem;
+}
+
+.price-plan {
+    display: flex;
+    flex-direction: row;
+}
+
+.price-details {
+    width: 50%;
+    
+}
+
+.price-details ul {
+    list-style: none;
+    line-height: 1.8rem;
+    font-size: 1.2rem;
+}
+
+.price {
+    width: 50%;
+    font-size: 3rem;
+    text-align: right;
+    margin-right: 4rem;
+}
+
+.price-btn-wrapper {
+    margin: 1rem auto;
+}
+
+.price-btn-wrapper button {
+    border-radius: 6px;
+    width: auto;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    color: #3d5a80;
+    border: 1px solid #3d5a80;
+}
+
+#monthly {
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+}
+
+#yearly {
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+}
+
+.price-btn-wrapper button:hover,
+.price-btn-wrapper button:active,
+.price-btn-wrapper button.active {
+    color: #E0FBFC;
+    background: #3d5a80;
+}
