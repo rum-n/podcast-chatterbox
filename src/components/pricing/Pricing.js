@@ -2,27 +2,50 @@ import React, { useState } from 'react';
 import './styles.css';
 
 const Pricing = () => {
-    const [ pricePeriod, setPricePeriod ] = useState('monthly');
+    const pricePeriods = {
+        monthly: {
+            details: [
+                "Monthly subscription",
+                "Secure payment using Stripe",
+                "Daily updated list of podcast guests",
+                "Browse easily by category",
+                "See guest's achievements at a glance",
+                "Easily compile talking points for your interview"
+            ],
+            price: 10
+        },
+        yearly: {
+            details: [ 
+                "Yearly subscription",
+                "Secure payment using Stripe",
+                "Get 2 months for free",
+                "Daily updated list of podcast guests",
+                "Browse easily by category",
+                "See guest's achievements at a glance",
+                "Easily compile talking points for your interview"
+            ],
+            price: 100
+        }
+    }
+
+    const [ pricePeriod, setPricePeriod ] = useState(pricePeriods.monthly);
 
     return (
         <div className='pricing-wrapper'>
             <h2 className='process-title main-blue'>Pricing</h2>
             <div className='price-btn-wrapper'>
-                <button id='monthly'>Monthly</button>
-                <button id='yearly'>Yearly</button>
+                <button id='monthly' onClick={() => setPricePeriod(pricePeriods.monthly)}>Monthly</button>
+                <button id='yearly' onClick={() => setPricePeriod(pricePeriods.yearly)}>Yearly</button>
             </div>
             <div className='price-plan'>
                 <div className='price'>
-                    <h3>$10</h3>
+                    <h3 key={pricePeriod.price}>${pricePeriod.price}</h3>
                 </div>
-                <div className='price-details'>
+                <div className='monthly-price-details'>
                     <ul>
-                        <li>Monthly subscription</li>
-                        <li>Secure payment using Stripe</li>
-                        <li>Access to a constantly updated list of podcast guests</li>
-                        <li>Browse easily by category</li>
-                        <li>See guest's achievements at a glance</li>
-                        <li>Easily compile talking points for your interview</li>
+                        {pricePeriod.details.map(details => (
+                            <li>{details}</li>
+                        ))}
                     </ul>
                 </div>
             </div>

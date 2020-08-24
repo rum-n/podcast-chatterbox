@@ -15,12 +15,14 @@
     flex-direction: row;
 }
 
-.price-details {
+.monthly-price-details,
+.yearly-price-details {
     width: 50%;
     
 }
 
-.price-details ul {
+.monthly-price-details ul,
+.yearly-price-details ul {
     list-style: none;
     line-height: 1.8rem;
     font-size: 1.2rem;
@@ -39,13 +41,17 @@
 
 .price-btn-wrapper button {
     border-radius: 6px;
-    width: auto;
+    width: 7rem;
     font-size: 1rem;
     font-weight: 800;
     cursor: pointer;
     padding: 0.5rem 1rem;
     color: #3d5a80;
     border: 1px solid #3d5a80;
+}
+
+.price-btn-wrapper button:focus {
+    outline: none;
 }
 
 #monthly {
@@ -60,7 +66,7 @@
 
 .price-btn-wrapper button:hover,
 .price-btn-wrapper button:active,
-.price-btn-wrapper button.active {
+.price-btn-wrapper button.active{
     color: #E0FBFC;
     background: #3d5a80;
 }

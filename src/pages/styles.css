@@ -18,6 +18,20 @@
     color: #293241;
 } 
 
+.home-header {
+    padding-left: 4rem;
+    width: 35rem;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    top: 0;
+    margin-top: 10rem;
+}
+
+.home-header img {
+    height: 25rem;
+}
+
 .title {
     font-size: 3.2rem;
     font-weight: 600;
@@ -84,6 +98,23 @@
     background: #3d5a80;
 }
 
+/* GUESTS */
+
+.guests-header {
+    padding-left: 4rem;
+    width: 35rem;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    top: 0;
+    margin-top: 3rem;
+    margin-right: -4rem;
+}
+
+.guests-header img {
+    height: 35rem;
+}
+
 .guests-wrapper {
     display: flex;
     flex-direction: row;
@@ -110,6 +141,23 @@
 
 .guest-card p {
     text-align: right;
+}
+
+/* HOSTS */
+
+.hosts-header {
+    padding-left: 4rem;
+    width: 35rem;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    top: 0;
+    margin-top: 10rem;
+    margin-right: 5rem;
+}
+
+.hosts-header img {
+    height: 25rem;
 }
 
 /* LOGIN */
