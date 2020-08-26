@@ -3,6 +3,7 @@ import './styles.css';
 import headerImg from './../assets/giraffes2.png';
 import Footer from './../components/footer/Footer';
 import Pricing from './../components/pricing/Pricing';
+import HostReasons from '../components/hostReasons/HostReasons';
 
 const Hosts = () => {
   return (
@@ -15,6 +16,7 @@ const Hosts = () => {
           <h2 className='main-blue'>There are interesting people, who'd love to be on your podcast. <br/>It's just not that easy to find them online. Now it is.</h2>
           <button>Join Now</button>
       </div>
+      <HostReasons/>
       <Pricing/>
       <Footer/>
     </div>

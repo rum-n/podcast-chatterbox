@@ -10,7 +10,7 @@ const Guests = () => {
         <img src={headerImg} alt='Graphic Flamingo'/>
       </div>
       <div className='intro'>
-          <h1 className='title dark-blue'>Get more exposure and <br/>build up your personal brand.</h1>
+          <h1 className='title dark-blue'>Get more exposure and <br/>build your personal brand.</h1>
           <h2 className='main-blue'>Speaking on a podcast is a great way to get your name out there,<br/> promote your product or service, and expand your professional network.</h2>
           <button>Join Now</button>
       </div>

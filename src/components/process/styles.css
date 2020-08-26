@@ -23,6 +23,10 @@
     background: #293241;
 }
 
+.process-content a {
+    margin: auto;
+}
+
 .process-title {
     text-align: center;
 }

@@ -1,30 +1,31 @@
 import React, { useState } from 'react';
 import './styles.css';
+import tick from './../../assets/tick.png';
 
 const Pricing = () => {
     const pricePeriods = {
         monthly: {
             details: [
-                "Monthly subscription",
-                "Secure payment using Stripe",
-                "Daily updated list of podcast guests",
+                "1 Month subscription",
                 "Browse easily by category",
-                "See guest's achievements at a glance",
-                "Easily compile talking points for your interview"
+                "Daily updated list of podcast guests",
+                "View guest profiles at a glance",
+                "Easily compile an interview"
             ],
-            price: 10
+            price: 10,
+            period: "month"
         },
         yearly: {
             details: [ 
-                "Yearly subscription",
-                "Secure payment using Stripe",
+                "1 Year subscription",
                 "Get 2 months for free",
-                "Daily updated list of podcast guests",
                 "Browse easily by category",
-                "See guest's achievements at a glance",
-                "Easily compile talking points for your interview"
+                "Daily updated list of podcast guests",
+                "View guest profiles at a glance",
+                "Easily compile an interview"
             ],
-            price: 100
+            price: 100,
+            period: "year"
         }
     }
 
@@ -32,22 +33,19 @@ const Pricing = () => {
 
     return (
         <div className='pricing-wrapper'>
-            <h2 className='process-title main-blue'>Pricing</h2>
+            <h2 className='process-title main-blue'>Simple pricing</h2>
+            <p className='why-subtitle' id='price-subtitle'>Payments are handled securely by Stripe</p>
             <div className='price-btn-wrapper'>
                 <button id='monthly' onClick={() => setPricePeriod(pricePeriods.monthly)}>Monthly</button>
                 <button id='yearly' onClick={() => setPricePeriod(pricePeriods.yearly)}>Yearly</button>
             </div>
             <div className='price-plan'>
-                <div className='price'>
-                    <h3 key={pricePeriod.price}>${pricePeriod.price}</h3>
-                </div>
-                <div className='monthly-price-details'>
-                    <ul>
-                        {pricePeriod.details.map(details => (
-                            <li>{details}</li>
-                        ))}
-                    </ul>
-                </div>
+                <h3 className='price' key={pricePeriod.price}>${pricePeriod.price} / {pricePeriod.period}</h3>
+                <ul>
+                    {pricePeriod.details.map(details => (
+                        <li><img src={tick}/> {details}</li>
+                    ))}
+                </ul>
             </div>
         </div>
     )

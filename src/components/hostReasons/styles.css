@@ -1,0 +1,61 @@
+.host-reasons-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 4rem auto;
+}
+
+.why-subtitle{
+    text-align: center;
+    margin: 0;
+    color: #293241;
+    font-size: 1.5rem;
+}
+
+.host-reasons-wrapper h2{
+    text-align: center;
+    color: #3d5a80;
+    font-size: 2.8rem;
+    margin: 1rem;
+}
+
+.host-reason {
+    font-size: 2.5rem;
+    color: #293241;   
+    margin: 1rem 0; 
+}
+
+.why-join {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 7rem;
+}
+
+.why-join img {
+    width: 20rem;
+}
+
+.why-details {
+    width: 50%;
+}
+
+#why-details {
+    text-align: left;
+}
+
+#reason-tag {
+    margin: 0;
+}
+
+.title-tag {
+    margin: 0rem auto;
+    color: #3d5a80;
+    text-align: center;
+    width: 6rem;
+    padding: 0.5rem;
+    font-weight: 600;
+    font-size: 0.7rem;
+    background: #E0FBFC;
+    border-radius: 15px;
+    text-transform: uppercase;
+}

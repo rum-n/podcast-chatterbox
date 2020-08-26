@@ -16,7 +16,7 @@ const Home = () => {
         <div className='intro'>
             <h1 className='title dark-blue'>The easiest way to find and <br/>book your next podcast guest</h1>
             <h2 className='main-blue'>Browse through a list of people who'd love to be on your podcast. <br/>See what they've accomplished and prepare a compelling interview.</h2>
-            <NavLink className='main-blue' to='/signup'><button>Join Now</button></NavLink>
+            <NavLink className='main-blue' to='/signup'><button id='second-cta'>Join Now</button></NavLink>
         </div>
         <Why/>
         <Process/>
