@@ -98,8 +98,6 @@
     background: #3d5a80;
 }
 
-/* GUESTS */
-
 .guests-header {
     padding-left: 4rem;
     width: 35rem;
@@ -141,6 +139,11 @@
 
 .guest-card p {
     text-align: right;
+    cursor: pointer;
+}
+
+.guest-card p:hover {
+    color: #EE6C4D;
 }
 
 /* HOSTS */

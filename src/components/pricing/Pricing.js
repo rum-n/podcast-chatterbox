@@ -43,7 +43,7 @@ const Pricing = () => {
                 <h3 className='price' key={pricePeriod.price}>${pricePeriod.price} / {pricePeriod.period}</h3>
                 <ul>
                     {pricePeriod.details.map(details => (
-                        <li><img src={tick}/> {details}</li>
+                        <li><img src={tick} alt='Green Tick'/> {details}</li>
                     ))}
                 </ul>
             </div>
