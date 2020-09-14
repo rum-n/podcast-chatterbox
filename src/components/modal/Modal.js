@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
 
-const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
+const Modal = ({ isShowing, hide, name, title, achievements, topics }) => isShowing ? ReactDOM.createPortal(
   <React.Fragment>
     <div className="modal-overlay"/>
     <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
@@ -17,25 +17,13 @@ const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
                 <div className='category-tag'>Business</div>
                 <div className='category-tag'>Comedy</div>
             </div>
-            <h2>Elon Musk</h2>
-            <h3>Founder of Tesla, SpaceX and Solar City</h3>
+            <h2>{name}</h2>
+            <h3>{title}</h3>
             <hr className='details-separator'/>
-            <h4>🎉 Achievements:</h4>
-            <ul>
-                <li>➖ Being the richest man alive.</li>
-                <li>➖ Being the richest man alive.</li>
-                <li>➖ Being the richest man alive.</li>
-                <li>➖ Being the richest man alive.</li>
-                <li>➖ Being the richest man alive.</li>
-            </ul>
+            <h4><span role="img" aria-label='celebrate'>🎉</span> Achievements:</h4>
+            <ul>{achievements}</ul>
             <h4>🎙 I'd be happy to talk about:</h4>
-            <ul>
-                <li>➖ Coming up with weird baby names.</li>
-                <li>➖ Sleeping in a factory.</li>
-                <li>➖ Sending cars to space.</li>
-                <li>➖ Making flame throwers.</li>
-                <li>➖ Having 5 kids.</li>
-            </ul>
+            <ul>{topics}</ul>
         </div>
       </div>
     </div>

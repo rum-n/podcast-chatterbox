@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './styles.css';
 import logo from './../../assets/logo.png';
 import { AuthContext } from './../../Auth';
@@ -9,13 +9,14 @@ const Nav = () => {
     const { currentUser } = useContext(AuthContext);
     return (
         <header>
-            <Link to='/'>
+            {/* <Link to='/'> */}
                 <div className='logo'>
                     <img src={logo} alt='Logo'/>
                 </div>
-            </Link>
+            {/* </Link> */}
             <nav>
                 <ul className='menu'>
+                    {!currentUser && <li><NavLink className='main-blue' to='/'>Home</NavLink></li>}
                     {!currentUser && <li><NavLink className='main-blue' to='/hosts'>For Hosts</NavLink></li>}
                     {!currentUser && <li><NavLink className='main-blue' to='/guests'>For Guests</NavLink></li>}
                     {!currentUser && <li><NavLink className='main-blue' to='/login'>Login</NavLink></li>}

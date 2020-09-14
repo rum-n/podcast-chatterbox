@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.css';
 import headerImg from './../assets/flamingo2.png';
 import Footer from './../components/footer/Footer';
+import GuestReasons from './../components/guestReasons/GuestReasons';
 
 const Guests = () => {
   return (
@@ -14,6 +15,7 @@ const Guests = () => {
           <h2 className='main-blue'>Speaking on a podcast is a great way to get your name out there,<br/> promote your product or service, and expand your professional network.</h2>
           <button>Join Now</button>
       </div>
+      <GuestReasons/>
       <Footer/>
     </div>
   );

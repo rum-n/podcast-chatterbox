@@ -9,6 +9,7 @@ import Main from './pages/Main';
 import Nav from './components/nav/Nav';
 import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute';
+// import GuestPage from './pages/GuestPage';
 
 function App() {
   return (
@@ -21,8 +22,9 @@ function App() {
             <Route path='/hosts' exact component={Hosts} />
             <Route path='/guests' exact component={Guests} />
             <Route path='/login' exact component={Login} />
-            <PrivateRoute path='/main' exact component={Main} />
             <Route path='/signup' exact component={Signup} />
+            <PrivateRoute path='/main' exact component={Main} />
+            {/* <Route path='/main/:id' component={GuestPage}/> */}
           </Switch>
         </Router>
       </div>
