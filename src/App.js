@@ -7,26 +7,26 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Main from './pages/Main';
 import Nav from './components/nav/Nav';
-import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute';
+import { SessionProvider, sessionReducer } from './context/session';
 
 function App() {
+  const [state, dispatch] = React.useReducer(sessionReducer, { user: null })
+
   return (
-    <AuthProvider>
-      <div className="App">
-        <Router>
-          <Nav/>
-          <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/hosts' exact component={Hosts} />
-            <Route path='/guests' exact component={Guests} />
-            <Route path='/login' exact component={Login} />
-            <PrivateRoute path='/main' exact component={Main} />
-            <Route path='/signup' exact component={Signup} />
-          </Switch>
-        </Router>
-      </div>
-    </AuthProvider>
+    <Router>
+      <SessionProvider value={{ state, dispatch }}>
+        <Nav/>
+        <Switch>
+          <Route path='/' exact component={Home} />
+          <Route path='/hosts' component={Hosts} />
+          <Route path='/guests' component={Guests} />
+          <Route path='/login' component={Login} />
+          <PrivateRoute path='/main' exact component={Main} />
+          <Route path='/signup' component={Signup} />
+        </Switch>
+    </SessionProvider>
+  </Router>
   );
 }
 
