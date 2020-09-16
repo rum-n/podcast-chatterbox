@@ -22,19 +22,19 @@ const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
             <hr className='details-separator'/>
             <h4>🎉 Achievements:</h4>
             <ul>
-                <li>➖ Being the richest man alive.</li>
-                <li>➖ Being the richest man alive.</li>
-                <li>➖ Being the richest man alive.</li>
-                <li>➖ Being the richest man alive.</li>
-                <li>➖ Being the richest man alive.</li>
+                <li>Being the richest man alive.</li>
+                <li>Being the richest man alive.</li>
+                <li>Being the richest man alive.</li>
+                <li>Being the richest man alive.</li>
+                <li>Being the richest man alive.</li>
             </ul>
             <h4>🎙 I'd be happy to talk about:</h4>
             <ul>
-                <li>➖ Coming up with weird baby names.</li>
-                <li>➖ Sleeping in a factory.</li>
-                <li>➖ Sending cars to space.</li>
-                <li>➖ Making flame throwers.</li>
-                <li>➖ Having 5 kids.</li>
+                <li>Coming up with weird baby names.</li>
+                <li>Sleeping in a factory.</li>
+                <li>Sending cars to space.</li>
+                <li>Making flame throwers.</li>
+                <li>Having 5 kids.</li>
             </ul>
         </div>
       </div>

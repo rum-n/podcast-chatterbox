@@ -7,7 +7,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Main from './pages/Main';
 import Nav from './components/nav/Nav';
-import PrivateRoute from './PrivateRoute';
+// import PrivateRoute from './PrivateRoute';
 import { SessionProvider, sessionReducer } from './context/session';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Route path='/hosts' component={Hosts} />
           <Route path='/guests' component={Guests} />
           <Route path='/login' component={Login} />
-          <PrivateRoute path='/main' exact component={Main} />
+          <Route path='/main' exact component={Main} />
           <Route path='/signup' component={Signup} />
         </Switch>
     </SessionProvider>

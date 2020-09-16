@@ -7,7 +7,7 @@ import {
 } from "./../util/error-handling"
 
 // Components
-import Form from "./../components/form"
+import Form from "./../components/Form"
 
 const handleRegister = (event, username, password) => {
   register(username, password)
@@ -27,20 +27,4 @@ const SignUp = () => {
 }
 
   export default SignUp;
-    
-    // <div className='login'>
-    //   <h1 className='main-blue'>Signup</h1>
-    //   <form className='login-form' onSubmit={handleSignUp}>
-    //     <label>
-    //       Email
-    //     </label>
-    //       <input name="email" type="email" placeholder="Email" />
-    //     <label>
-    //       Password
-    //     </label>
-    //       <input name="password" type="password" placeholder="Password" />
-    //     <button type="submit">Signup</button>
-    //     <p>Already have an account? <NavLink className='main-blue' to='/login'>Login</NavLink></p>
-    //   </form>
-    // </div>
 

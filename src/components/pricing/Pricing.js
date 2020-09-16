@@ -13,7 +13,8 @@ const Pricing = () => {
                 "Easily compile an interview"
             ],
             price: 10,
-            period: "month"
+            period: "month",
+            id: 1
         },
         yearly: {
             details: [ 
@@ -25,7 +26,8 @@ const Pricing = () => {
                 "Easily compile an interview"
             ],
             price: 100,
-            period: "year"
+            period: "year",
+            id: 2
         }
     }
 
@@ -43,7 +45,7 @@ const Pricing = () => {
                 <h3 className='price' key={pricePeriod.price}>${pricePeriod.price} / {pricePeriod.period}</h3>
                 <ul>
                     {pricePeriod.details.map(details => (
-                        <li><img src={tick} alt='Green Tick'/> {details}</li>
+                        <li key={details.id}><img src={tick} alt='Green Tick'/> {details}</li>
                     ))}
                 </ul>
             </div>
