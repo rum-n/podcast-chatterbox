@@ -180,14 +180,14 @@ const generateProfiles = profiles => {
   if(profiles){
     return profiles.map((profile, index) => {
       return (
-        <ProfileCard
+        <div
           key={'profile_' + index}
           name={profile.name ? profile.name : ''}
           icon={profile.icon ? profile.icon : 'noicon'}
           skills={profile.skills ? profile.skills : []}
           projects={profile.projects ? profile.projects : []}
           profileKey={index}
-        ></ProfileCard>
+        ></div>
       )
     })
   }
