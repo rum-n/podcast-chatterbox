@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
 import './styles.css';
 import InsideFooter from './../components/footer/InsideFooter';
-import app from './../base';
 
 const GuestPage = ({match}) => {
-    const [state, setState] = useState({});
+    // const [state, setState] = useState({});
 
-    const ref = app.firestore().collection(match.params.id);
+    // const ref = app.firestore().collection(match.params.id);
     
-    function getGuests() {
-        setLoading(true);
-        ref.onSnapshot((querySnapshot) => {
-            const items = [];
-            querySnapshot.forEach((doc) => {
-                items.push(doc.data());
-            });
-            setState(items);
-            setLoading(false);
-        });
-    }
+    // function getGuests() {
+    //     setLoading(true);
+    //     ref.onSnapshot((querySnapshot) => {
+    //         const items = [];
+    //         querySnapshot.forEach((doc) => {
+    //             items.push(doc.data());
+    //         });
+    //         setState(items);
+    //         setLoading(false);
+    //     });
+    // }
 
-    useEffect(() => {
-        getGuests();
-    }, [])
+    // useEffect(() => {
+    //     getGuests();
+    // }, [])
 
   return (
     <div>

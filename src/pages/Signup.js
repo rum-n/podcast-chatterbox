@@ -1,26 +1,24 @@
-import React, { useCallback } from "react";
-import { withRouter } from "react-router";
-import app from "./../base";
+import React from "react";
 import { NavLink } from 'react-router-dom';
 
-const SignUp = ({ history }) => {
-  const handleSignUp = useCallback(async event => {
-    event.preventDefault();
-    const { email, password } = event.target.elements;
-    try {
-      await app
-        .auth()
-        .createUserWithEmailAndPassword(email.value, password.value);
-      history.push("/main");
-    } catch (error) {
-      alert(error);
-    }
-  }, [history]);
+const SignUp = () => {
+  // const handleSignUp = useCallback(async event => {
+  //   event.preventDefault();
+  //   const { email, password } = event.target.elements;
+  //   try {
+  //     await app
+  //       .auth()
+  //       .createUserWithEmailAndPassword(email.value, password.value);
+  //     history.push("/main");
+  //   } catch (error) {
+  //     alert(error);
+  //   }
+  // }, [history]);
 
   return (
     <div className='login'>
       <h1 className='main-blue'>Signup</h1>
-      <form className='login-form' onSubmit={handleSignUp}>
+      <form className='login-form'>
         <label>
           Email
         </label>
@@ -36,4 +34,4 @@ const SignUp = ({ history }) => {
   );
 };
 
-export default withRouter(SignUp);
+export default SignUp;

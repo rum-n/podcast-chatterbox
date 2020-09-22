@@ -1,27 +1,38 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './styles.css';
 import logo from './../../assets/logo.png';
-import { AuthContext } from './../../Auth';
-import app from './../../base';
+import { useAppContext } from "../../libs/contextLib";
 
 const Nav = () => {
-    const { currentUser } = useContext(AuthContext);
+    const { userHasAuthenticated } = useAppContext();
+
+    function handleLogout() {
+        userHasAuthenticated(false);
+    }
+    
     return (
         <header>
-            {/* <Link to='/'> */}
+            <NavLink to={userHasAuthenticated ? '/' : '/main'}>
                 <div className='logo'>
                     <img src={logo} alt='Logo'/>
                 </div>
-            {/* </Link> */}
+            </NavLink>
             <nav>
                 <ul className='menu'>
-                    {!currentUser && <li><NavLink className='main-blue' to='/'>Home</NavLink></li>}
-                    {!currentUser && <li><NavLink className='main-blue' to='/hosts'>For Hosts</NavLink></li>}
-                    {!currentUser && <li><NavLink className='main-blue' to='/guests'>For Guests</NavLink></li>}
-                    {!currentUser && <li><NavLink className='main-blue' to='/login'>Login</NavLink></li>}
-                    {!currentUser && <li><NavLink className='main-blue' to='/signup'>Join Now</NavLink></li>}
-                    {currentUser && <li><button className='logout-btn main-blue' onClick={()=>app.auth().signOut()}>Logout</button></li>}
+                    {userHasAuthenticated && <li><NavLink className='main-blue' to='/hosts'>For Hosts</NavLink></li>}
+                    {userHasAuthenticated && <li><NavLink className='main-blue' to='/guests'>For Guests</NavLink></li>}
+                    {userHasAuthenticated && <li><NavLink className='main-blue' to='/login'>Login</NavLink></li>}
+                    {userHasAuthenticated && <li><NavLink className='main-blue' to='/signup'>Join Now</NavLink></li>}
+                    {userHasAuthenticated && <li><button className='logout-btn main-blue' onClick={handleLogout}>Logout</button></li>}
+                    
+                    {/* {isAuthenticated
+                        ? <li><button className='logout-btn main-blue' onClick={handleLogout}>Logout</button></li>
+                        : <>
+                            <NavLink to="/signup">Signup</NavLink>
+                            <NavLink to="/login">Login</NavLink>
+                            </>
+                    } */}
                 </ul>
             </nav>         
         </header>
