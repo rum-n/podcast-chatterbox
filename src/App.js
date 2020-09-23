@@ -11,6 +11,7 @@ import { AppContext } from "./libs/contextLib";
 import { Auth } from "aws-amplify";
 import logo from './assets/logo.png';
 import { onError } from "./libs/errorLib";
+import NewGuest from './components/newGuest/NewGuest';
 // import PrivateRoute from './PrivateRoute';
 
 // import GuestPage from './pages/GuestPage';
@@ -74,6 +75,7 @@ function App() {
             <Route path='/login' exact component={Login} />
             <Route path='/signup' exact component={Signup} />
             <Route path='/main' exact component={Main} />
+            <Route path='/add-guest' exact component={NewGuest} />
             {/* <Route path='/main/:id' component={GuestPage}/> */}
           </Switch>
         </Router>
