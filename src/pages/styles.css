@@ -226,4 +226,9 @@
     background: #293241;
 }
 
+.login button:disabled {
+    background: grey;
+    cursor: default;
+}
+
 

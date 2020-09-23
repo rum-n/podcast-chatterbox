@@ -1,25 +1,37 @@
 import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+// import { withRouter, Redirect } from "react-router";
 import { Auth } from "aws-amplify";
 import { useAppContext } from "../libs/contextLib";
+import { onError } from "../libs/errorLib";
+import { useFormFields } from "../libs/hooksLib";
 
 const Login = () => {
+  const history = useHistory();
   const { userHasAuthenticated } = useAppContext();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [fields, handleFieldChange] = useFormFields({
+    email: "",
+    password: ""
+  });
 
   function validateForm() {
-    return email.length > 0 && password.length > 0;
+    return fields.email.length > 0 && fields.password.length > 0;
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
-  
+
+    setIsLoading(true);
+
     try {
-      await Auth.signIn(email, password);
+      await Auth.signIn(fields.email, fields.password);
       userHasAuthenticated(true);
+      history.push("/main");
     } catch (e) {
-      alert(e.message);
+      onError(e);
+      setIsLoading(false);
     }
   }
 
@@ -30,26 +42,26 @@ const Login = () => {
       <form className='login-form' onSubmit={handleSubmit}>
             <label>Email</label>
             <input 
-              name="email" 
+              id="email"
               type="email" 
-              value={email}
-              onChange={e => setEmail(e.target.value)}
+              value={fields.email}
+              onChange={handleFieldChange}
               placeholder="Email" 
             />
             <label>Password</label>
             <input 
-              name="password" 
+              id="password"
               type="password" 
               autoComplete="off"
               placeholder="Password" 
-              value={password}
-              onChange={e => setPassword(e.target.value)}
+              value={fields.password}
+              onChange={handleFieldChange}
             />
         <button 
           type="submit" 
-          disabled={!validateForm()}
+          disabled={!validateForm() && isLoading}
         >
-          Login
+        {isLoading ? "Loading..." : "Login"}  
         </button>
         <p>Don't have an account? <NavLink className='main-blue' to='/signup'>Signup</NavLink></p>
       </form>

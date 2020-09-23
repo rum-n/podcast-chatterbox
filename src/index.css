@@ -11,3 +11,12 @@ body {
 button {
   background: inherit;
 }
+
+button:disabled {
+  background: grey;
+  cursor: default;
+}
+
+input:focus {
+  border:none;
+}
