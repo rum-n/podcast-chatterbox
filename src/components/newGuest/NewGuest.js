@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { onError } from "../../libs/errorLib";
 import config from "../../config";
 import { API } from "aws-amplify";
+import { s3Upload } from "../../libs/awsLib";
 import "./styles.css";
 
 const NewGuest = () => {
@@ -24,8 +25,9 @@ const NewGuest = () => {
   
     if (file.current && file.current.size > config.MAX_ATTACHMENT_SIZE) {
       alert(
-        `Please pick a file smaller than ${config.MAX_ATTACHMENT_SIZE /
-          1000000} MB.`
+        `Please pick a file smaller than ${
+          config.MAX_ATTACHMENT_SIZE / 1000000
+        } MB.`
       );
       return;
     }
@@ -33,7 +35,9 @@ const NewGuest = () => {
     setIsLoading(true);
   
     try {
-      await createGuest({ content });
+      const attachment = file.current ? await s3Upload(file.current) : null;
+  
+      await createNote({ content, attachment });
       history.push("/main");
     } catch (e) {
       onError(e);
