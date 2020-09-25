@@ -18,6 +18,10 @@
     color: #293241;
 } 
 
+.center-text {
+    text-align: center;
+}
+
 .home-header {
     padding-left: 4rem;
     width: 35rem;
@@ -229,6 +233,16 @@
 .login button:disabled {
     background: grey;
     cursor: default;
+}
+
+.subscribe-alert {
+    width: 40%;
+    background-color: #EE6C4D;
+    border-radius: 10px;
+    margin: auto;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
 }
 
 

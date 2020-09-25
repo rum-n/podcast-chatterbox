@@ -1,37 +1,46 @@
-import React, { useState } from 'react';
-import './styles.css';
+import React, { useRef, useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
+import { API, Storage } from "aws-amplify";
+import { onError } from "../libs/errorLib";
 import InsideFooter from './../components/footer/InsideFooter';
 
 const GuestPage = ({match}) => {
-    // const [state, setState] = useState({});
+  const file = useRef(null);
+  const { id } = useParams();
+  const history = useHistory();
+  const [note, setNote] = useState(null);
+  const [content, setContent] = useState("");
 
-    // const ref = app.firestore().collection(match.params.id);
-    
-    // function getGuests() {
-    //     setLoading(true);
-    //     ref.onSnapshot((querySnapshot) => {
-    //         const items = [];
-    //         querySnapshot.forEach((doc) => {
-    //             items.push(doc.data());
-    //         });
-    //         setState(items);
-    //         setLoading(false);
-    //     });
-    // }
+  useEffect(() => {
+    function loadNote() {
+      return API.get("notes", `/notes/${id}`);
+    }
 
-    // useEffect(() => {
-    //     getGuests();
-    // }, [])
+    async function onLoad() {
+      try {
+        const note = await loadNote();
+        const { content, attachment } = note;
+
+        if (attachment) {
+          note.attachmentURL = await Storage.vault.get(attachment);
+        }
+
+        setContent(content);
+        setNote(note);
+      } catch (e) {
+        onError(e);
+      }
+    }
+
+    onLoad();
+  }, [id]);
+
 
   return (
     <div>
-        <h2>{state.name}</h2>
-        <h3>{title}</h3>
+        
+        
         <hr className='details-separator'/>
-        <h4><span role="img" aria-label='celebrate'>🎉</span> Achievements:</h4>
-        <ul>{achievements}</ul>
-        <h4>🎙 I'd be happy to talk about:</h4>
-        <ul>{topics}</ul>
       <InsideFooter/>
     </div>
   );

@@ -1,10 +1,54 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useAppContext } from "../libs/contextLib";
+import { onError } from "../libs/errorLib";
+import { API } from "aws-amplify";
+import { Link } from 'react-router-dom';
 import InsideFooter from './../components/footer/InsideFooter';
 // import Modal from "./../components/modal/Modal";
 // import useModal from './../useModal';
 
 const Main = () => {
+    const [guests, setGuests] = useState([]);
+    const { isAuthenticated } = useAppContext();
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        async function onLoad() {
+          if (!isAuthenticated) {
+            return;
+          }
+      
+          try {
+            const guests = await loadGuests();
+            setGuests(guests);
+          } catch (e) {
+            onError(e);
+          }
+      
+          setIsLoading(false);
+        }
+      
+        onLoad();
+      }, [isAuthenticated]);
+      
+      function loadGuests() {
+        return API.get("guests", "/guests");
+    }
+    
+    function renderGuestsList(guests) {
+        return [{}].concat(guests).map((guest, i) =>
+        i !== 0 ? (
+          <Link to={`/guests/${guest.guestId}`}><div key={guest.guestId}>
+            <p>{"Created: " + new Date(guest.createdAt).toLocaleString()}</p>
+          </div></Link>
+        ) : (
+          <div className='subscribe-alert'>
+              <h2>You need to create an account to be able to see the list of potential podcast guests.</h2>
+          </div>
+        )
+      );
+    }
+
     // const {isShowing, toggle} = useModal();
     // const [guests, setGuests] = useState([]);
     // const [loading, setLoading] = useState(false);
@@ -49,6 +93,7 @@ const Main = () => {
                     <button>Gaming</button>
                 </div>
             </div>
+            {!isLoading && renderGuestsList(guests)}
                 {/* <div className='guests-wrapper'>
                     {guests.map(guest => (
                         <div key={guest.name} className='guest-card'>

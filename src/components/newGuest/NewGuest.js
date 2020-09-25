@@ -37,7 +37,7 @@ const NewGuest = () => {
     try {
       const attachment = file.current ? await s3Upload(file.current) : null;
   
-      await createNote({ content, attachment });
+      await createGuest({ content, attachment });
       history.push("/main");
     } catch (e) {
       onError(e);

@@ -12,9 +12,10 @@ import { Auth } from "aws-amplify";
 import logo from './assets/logo.png';
 import { onError } from "./libs/errorLib";
 import NewGuest from './components/newGuest/NewGuest';
+import GuestPage from './pages/GuestPage';
+import AuthenticatedRoute from "./components/AuthenticatedRoute";
+import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
 // import PrivateRoute from './PrivateRoute';
-
-// import GuestPage from './pages/GuestPage';
 
 function App() {
   const history = useHistory();
@@ -35,7 +36,6 @@ function App() {
         onError(e);
       }
     }
-  
     setIsAuthenticating(false);
   }
 
@@ -44,7 +44,7 @@ function App() {
   
     userHasAuthenticated(false);
   
-    history.push("/login");
+    // history.push("/login");
   }
 
   return (
@@ -72,11 +72,11 @@ function App() {
             <Route path='/' exact component={Home} />
             <Route path='/hosts' exact component={Hosts} />
             <Route path='/guests' exact component={Guests} />
-            <Route path='/login' exact component={Login} />
-            <Route path='/signup' exact component={Signup} />
-            <Route path='/main' exact component={Main} />
+            <UnauthenticatedRoute path='/login' exact component={Login} />
+            <UnauthenticatedRoute path='/signup' exact component={Signup} />
+            <AuthenticatedRoute path='/main' exact component={Main} />
             <Route path='/add-guest' exact component={NewGuest} />
-            {/* <Route path='/main/:id' component={GuestPage}/> */}
+            <Route path='/main/:id' component={GuestPage}/>
           </Switch>
         </Router>
       </AppContext.Provider>
