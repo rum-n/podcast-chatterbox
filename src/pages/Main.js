@@ -37,44 +37,20 @@ const Main = () => {
     
     function renderGuestsList(guests) {
         return [{}].concat(guests).map((guest, i) =>
-        i !== 0 ? (
-          <Link to={`/guests/${guest.guestId}`}><div key={guest.guestId}>
-            <p>{"Created: " + new Date(guest.createdAt).toLocaleString()}</p>
-          </div></Link>
-        ) : (
-          <div className='subscribe-alert'>
-              <h2>You need to create an account to be able to see the list of potential podcast guests.</h2>
-          </div>
-        )
+        // i !== 0 ? (
+        //   <Link to={`/guests/${guest.guestId}`}><div key={guest.guestId}>
+        //     <p>{"Created: " + new Date(guest.createdAt).toLocaleString()}</p>
+        //   </div></Link>
+        // ) : (
+        //   <div className='subscribe-alert'>
+        //       <h2>You need to create an account to be able to see the list of potential podcast guests.</h2>
+        //   </div>
+        // )
+        <Link key={i} to={`/guests/${guest.guestId}`}><div className='guest-card'>
+        <p>{"Created: " + new Date(guest.createdAt).toLocaleString()}</p>
+      </div></Link>
       );
     }
-
-    // const {isShowing, toggle} = useModal();
-    // const [guests, setGuests] = useState([]);
-    // const [loading, setLoading] = useState(false);
-
-    // const ref = app.firestore().collection("guests");
-
-    // function getGuests() {
-    //     setLoading(true);
-    //     ref.onSnapshot((querySnapshot) => {
-    //         const items = [];
-    //         querySnapshot.forEach((doc) => {
-    //             items.push(doc.data());
-    //         });
-    //         setGuests(items);
-    //         setLoading(false);
-    //     });
-    // }
-
-    // useEffect(() => {
-    //     getGuests();
-    //     // eslint-disable-next-line
-    // },[])
-
-    // if (loading) {
-    //     return <h2 className='loading'>Loading...</h2>
-    // }
 
     return (
         <React.Fragment>
@@ -93,7 +69,9 @@ const Main = () => {
                     <button>Gaming</button>
                 </div>
             </div>
-            {!isLoading && renderGuestsList(guests)}
+            <div className='guests-wrapper'>
+              {!isLoading && renderGuestsList(guests)}
+            </div>
                 {/* <div className='guests-wrapper'>
                     {guests.map(guest => (
                         <div key={guest.name} className='guest-card'>

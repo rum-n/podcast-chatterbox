@@ -8,25 +8,25 @@ const GuestPage = ({match}) => {
   const file = useRef(null);
   const { id } = useParams();
   const history = useHistory();
-  const [note, setNote] = useState(null);
+  const [guest, setGuest] = useState(null);
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    function loadNote() {
+    function loadGuest() {
       return API.get("guests", `/guests/${id}`);
     }
 
     async function onLoad() {
       try {
-        const note = await loadNote();
-        const { content, attachment } = note;
+        const guest = await loadGuest();
+        const { content, attachment } = guest;
 
         if (attachment) {
-          note.attachmentURL = await Storage.vault.get(attachment);
+          guest.attachmentURL = await Storage.vault.get(attachment);
         }
 
         setContent(content);
-        setNote(note);
+        setGuest(guest);
       } catch (e) {
         onError(e);
       }
