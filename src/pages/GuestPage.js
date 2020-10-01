@@ -13,7 +13,7 @@ const GuestPage = ({match}) => {
 
   useEffect(() => {
     function loadNote() {
-      return API.get("notes", `/notes/${id}`);
+      return API.get("guests", `/guests/${id}`);
     }
 
     async function onLoad() {
